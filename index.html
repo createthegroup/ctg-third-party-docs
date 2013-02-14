@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]>    <html class="no-js iem7"> <![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="cleartype" content="on">
+
+        <link rel="stylesheet" href="styles/css/normalize.css">
+        <link rel="stylesheet" href="styles/css/main.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+
+        <header class="main-header" role="banner">
+            <div class="container">
+                <div class="logo"></div>
+            </div>
+        </header>
+
+        <div class="container">
+
+            <nav class="main-nav" role="navigation">
+                <a href="#general-guide">General guidelines</a>
+                <a href="#file-structure">File structure</a>
+                <a href="#html">HTML</a>
+                <a href="#css">CSS</a>
+                <a href="#js">JavaScript</a>
+                <a href="#mobile">Mobile guidelines</a>
+                <a href="#high-dpi">High DPI Images</a>
+            </nav>
+
+            <section id="general-guide" class="guide-category general-guide">
+                <header>
+                    <h1>General Guidelines</h1>
+                </header>
+                <ul>
+                    <li>Avoid trailing whitespace in code</li>
+                    <li>JavaScript must pass JSHint validation (exceptions can be made)</li>
+                    <li>HTML must pass W3C validation (exceptions can be made)</li>
+                    <li>Google Page Speed score of 90+</li>
+                    <li>Yahoo YSlow score of 85+</li>
+                </ul>
+                <ul>
+                    <li>No inline CSS</li>
+                    <li>No inline JavaScript</li>
+                    <li>Compress image assets</li>
+                </ul>
+            </section>
+
+            <section id="file-structure" class="guide-category">
+
+                <header>
+                    <h1>File structure</h1>
+                </header>
+
+                <nav>
+                    <a href="#html-structure">HTML</a>
+                    <a href="#css-structure">CSS</a>
+                    <a href="#js-structure">JavaScript</a>
+                </nav>
+                <section id="html-structure" class="html-structure">
+                    <header>
+                        <h2>HTML</h2>
+                    </header>
+                    <ul>
+                        <li>All templates should go into an appropriate subfolder based on the part of the site they apply to (ie /Views/Product/Detail.html for the product detail view)</li>
+                        <li>Layout/full site/non-specific elements (buttons, form fields, etc) should go in /Views/Shared/</li>
+                    </ul>
+                    <div class="structure-guide"></div>
+                </section>
+
+                <section id="css-structure" class="css-structure">
+                    <header>
+                        <h2>CSS</h2>
+                    </header>
+                    <div class="structure-guide"></div>
+                </section>
+
+                <section id="js-structure" class="js-structure">
+                    <header>
+                        <h2>JavaScript</h2>
+                    </header>
+                    <div class="structure-guide"></div>
+                </section>
+
+            </section>
+
+            <!-- // #file-structure // -->
+
+            <section id="html" class="guide-category">
+                <header>
+                    <h1>HTML</h1>
+                </header>
+                <nav>
+                    <a href="#html-general">General notes</a>
+                    <a href="#class-naming">Class naming</a>
+                    <a href="#forms">Forms</a>
+                </nav>
+                <section id="html-general">
+                    <header>
+                        <h2>General notes</h2>
+                    </header>
+                    <dl>
+                        <dt>Must validate in W3C validator (exceptions can be made)</dt>
+                        <dt>When using HTML5 "placeholder" attribute to show text in input boxes, be sure to include a JavaScript backup for Internet Explorer</dt>
+                        <dt>Avoid nesting too many divs</dt>
+                            <dd>Example of too many nested divs in Harry Winston desktop code: content/account/myaccout05-profile.html, line 125</dd>
+                        <dt>Write empty anchor tags as a hash</dt>
+                            <dd><span class="incorrect">Incorrect: </span><code>&lt;a href="Page-Name.html#"&gt;&lt;/a&gt;</code></dd>
+                            <dd><span class="correct">Correct: </span><code>&lt;a href="#"&gt;&lt;/a&gt;</code></dd>
+                    </dl>
+                </section>
+
+                <section id="class-naming">
+                    <header>
+                        <h2>Class naming</h2>
+                    </header>
+                    <dl>
+                        <dt>The body element should have the following classes:</dt>
+                            <dd>body-{controller}</dd>
+                            <dd>body-{controller}_{view}</dd>
+                        <dt>The root view element should have the following classes:</dt>
+                            <dd>view</dd>
+                            <dd>view-{controller}</dd>
+                            <dd>view-{controller}_{view}</dd>
+                        <dt>Avoid class names that describe how an element looks</dt>
+                            <dd><span class="incorrect">Incorrect: </span><code>big-red-btn</code></dd>
+                            <dd><span class="correct">Correct: </span><code>primary-btn</code></dd>
+                    </dl>                
+                </section>
+
+                <section id="forms">
+                    <header>
+                        <h2>Forms</h2>
+                    </header>
+
+                    <ul>
+                        <li>Group content semantically. (i.e. Group in Fieldset or List)</li>
+                        <li>Set an unique ID for each field.</li>
+                        <li>Set up <i>title</i> attribute describing each field.</li>
+                        <li>Set up &lt;label&gt; tag for each field and set a <i>for</i> attribute equal to the field's unique ID.</li>
+                        <li>Style the field's focus state in CSS.</li>
+                        <li>Use ctg.fieldCheckbox.js, ctg.fieldRadio.js, ctg.fieldSelect.js to have further control in custom styling.</li>
+                    </ul>
+
+                    <section class="code-sample">
+                        <script src="https://gist.github.com/mperrotti/4715026.js"></script>
+                    </section>
+                   
+                </section>
+
+            </section>
+            <!-- //#html -->
+
+            <section id="css" class="guide-category">
+                <header>
+                    <h1>CSS</h1>
+                </header>
+                <nav>
+                    <a href="#css-general">General notes</a>
+                    <a href="#choosing-names">Choosing Class Names</a>
+                    <a href="#css-organization">Stylesheet Organization</a>
+                    <a href="#css-selectors">Selectors</a>
+                    <a href="#pseudoclasses">Pseudoclasses</a>
+                    <a href="#placeholder-styling">Placeholder Styling</a>
+                </nav>
+                <section id="css-general">
+                    <header>
+                        <h2>General notes</h2>
+                    </header>
+                    <dl>
+                        <dt>Use a CSS reset</dt>
+                        <dt>Alphebetize your declarations</dt>
+                        <dt>Avoid using ID selectors as much as possible</dt>
+                        <dt>Don't start selectors with element names</dt>
+                            <dd><span class="incorrect">Incorrect: </span><code>div.class-name</code></dd>
+                            <dd><span class="correct">Correct: </span><code>.class-name</code></dd>
+                        <dt>Simplify selectors as much as possble</dt>
+                        <dt>Use CSS (as opposed to JavaScript) for animations as much as possible</dt>
+                            <dd>When moving an element from Point A to Point B, use <code>translateX</code> and <code>translateY</code> instead of positioning with <code>position: absolute;</code> or <code>position: relative;</code> and <code>top, right, bottom, left</code></dd>
+                    </dl>
+                </section>
+                <!-- //#css-general -->
+
+                <section id="choosing-names">
+                    <header>
+                        <h2>Choosing Class Names</h2>
+                    </header>
+                    <p>Names should be as specific as necessary. For example, if there are several different titles (product title + tab title) using the class .title might be ambiguous. To solve this you could:</p>
+                    <dl>
+                        <dt>Make the classes more specific -- .product-title, .tab-title, etc</dt>
+                            <dd>This method is less likely to cause conflicts, especially when future developers take on the code and don't necessarily fully understand the page hierarchy</dd>
+                        
+                        <dt>If the titiles are part of two different ancestors you can build the specificity into the selector -- .view .product .title, .view .tab .title</dt>
+                            <dd>This method is generally a bit lighter as class names and css selectors will be shorter, however if someone doesn't properly consider the hierarchy of the page (ie they use .view .title) it could apply styles where they weren't intended</dd>
+                    </dl>
+                </section>
+                <!-- //#choosing-names -->
+
+                <section id="css-organization">
+                    <header>
+                        <h2>Stylesheet Organization</h2>
+                    </header>
+                    <ul>
+                        <li>Stylesheets are minified and combined on all sites so it's ok to make as many stylesheets as you need.</li>
+                        <li>In general, there should be 1 stylesheet corresponding to each view or partial view</li>
+                        <li>Styles for a partial should deal with elements within the partial only, but specific positioning of partials should be handled within the containing view's styles</li>
+                        <li>Indent once for each level of hierarchy, ie:</li>
+<pre><code>
+.view {}
+   .view .element-1 {}
+     .view .element-1 header {}
+   .view .element-2 {}
+     .view .element-2 footer {}
+
+</code></pre>
+                    </ul>
+                </section>
+                <!-- //#css-organization -->
+
+                <section id="css-selectors">
+                    <header>
+                        <h2>Stylesheet Selectors</h2>
+                    </header>
+                    <ul>
+                        <li>Avoid chaining classes to style elements</li>
+                        <li>IDs should only be used when absolutely necessary</li>
+                        <li><code>!important</code> should only be used when absolutely necessary</li>
+                    </ul>
+                </section>
+                <!-- //#css-selectors -->
+
+                <section id="pseudoclasses">
+                    <header>
+                        <h2>Pseudoclasses</h2>
+                    </header>
+                    <ul>
+                        <li>Avoid styling with pseudoclasses when possible</li>
+                        <li><code>:before, ::before, :after, and ::after</code> can be safely used with this polyfill:</li>
+                    </ul>
+                    <div class="code-sample">
+                        <script src="https://gist.github.com/corydorning/2362483.js"></script>
+                    </div>
+                </section>
+                <!-- //#pseudoclasses -->
+
+                <section id="placeholder-styling">
+                    <header>
+                        <h2>Placeholder Styling</h2>
+                    </header>
+                    <p>The really annoying thing about styling placeholder text is that each implementation must be declared independently. If you declare them all in a single selector it doesn't work for any (or at least won't work for WebKit, I haven't done extensive FF/IE testing)</p>
+                    <h3 class="incorrect">Bad</h3>
+<pre><code>
+input::-webkit-input-placeholder,
+input::-moz-placeholder,
+input:-moz-placeholder,
+input:-ms-input-placeholder {
+    color: #464647;
+}
+
+</code></pre>                    
+                    <h3 class="correct">Good</h3>
+<pre><code>
+/*chrome, safari*/
+input::-webkit-input-placeholder { color: #464647; }
+
+/*current firefox*/
+input::-moz-placeholder { color: #464647; }
+
+/*firefox 18 and before*/
+input:-moz-placeholder { color: #464647; }
+
+/* IE 10 */
+input:-ms-input-placeholder { color: #464647; }
+
+</code></pre>                    
+                </section>
+                <!-- //#placeholder-styling -->
+
+            </section>
+            <!-- //#css -->
+
+            <section id="js" class="guide-category">
+                <header>
+                    <h1>JavaScript</h1>
+                </header>
+
+                <nav>
+                    <a href="#js-general">General notes</a>
+                    <a href="#choosing-names">Choosing Class Names</a>
+                </nav>
+                <section id="js-general">
+                    <header>
+                        <h2>General Notes</h2>
+                    </header>
+                    <dl>
+                        <dt>Must pass JSHint validation</dt>
+                        <dt>When possible, select elements with IDs because it's faster than classes or elements</dt>
+                        <dt>Use either single quotes or double quotes, not both</dt>
+                        <dt>Unless there is a good reason, use <code>===</code> as a comparrison operator over <code>==</code></dt>
+                        <dt>Avoid huge chunks of <code>if/else</code> statements. Use a <a href="http://www.w3schools.com/js/js_switch.asp">case switch</a> instead to keep the code tidier</dt>
+                        <dt>Simplify your selectors as much as possible</dt>
+                            <dd><span class="incorrect">Incorrect: </span>from Line 480 of javascripts/views/common.js: <code>div.timepiece-finder-filter > ul > li:eq(2) .fancy-multi-selectbox-container li</code></dd>
+                            <dd><span class="correct">Correct: </span>Instead, select with an HTML ID, jQuery's <code>.find()</code> method, or look into better ways to select very specific elements</dd>
+                        <dt>Don't start selectors with an element</dt>
+                            <dd><span class="incorrect">Incorrect: </span><code>div.class-name</code></dd>
+                            <dd><span class="correct">Correct: </span><code>.class-name</code></dd>
+                        <dt>Use <code>.on()</code> for:</dt>
+                            <dd>click events: 
+<pre><code>$('.button-set').on('click', '.button', function(){
+    alert('.button clicked');
+});
+</code></pre>
+                            </dd>
+                            <dd>hover events
+<pre><code>$('.button-set').on('mouseenter', '.button', function(){
+    alert('.button hovered on');
+}).on('mouseleave', '.button', function(){
+    alert('.button hovered off');
+});
+</code></pre>
+                            </dd>
+                        <dt>Don't use <code>e.target</code>, it doesn't work in IE or FF</dt>
+                            <dd>
+                                Instead set these variables 
+<pre><code>var e = window.event || e;
+var targ = e.target || e.srcElement;</pre></code> and then use <code>targ</code> or <code>$(targ)</code> where you would have used <code>e.target</code>
+                            </dd>
+                        <dt>Use "var" at least once when declaring a block of variables.</dt>
+                            <dd><span class="incorrect">Incorrect: </span>
+<pre><code>keyOne = valueOne, 
+keyTwo = valueTwo, 
+keyThree = valueThree;</code></pre></dd>
+
+                            <dd><span class="correct">Correct: </span>
+<pre><code>var keyOne = valueOne, 
+keyTwo = valueTwo, 
+keyThree = valueThree;</code></pre></dd>
+
+                            <dd><span class="correct">Correct: </span>
+<pre><code>var keyOne = valueOne;
+var keyTwo = valueTwo;
+var keyThree = valueThree;</code></pre></dd>
+                    </dl>
+                </section>
+
+            </section>
+            <!-- //#js -->
+
+            <section id="mobile" class="guide-category">
+                <header>
+                    <h1>Mobile Standards</h1>
+                </header>
+                <nav>
+                    <a href="#mobile-general">General notes</a>
+                    <a href="#viewport">Viewport</a>
+                    <a href="#custom-interface">Customize UI Components</a>
+                    <a href="#custom-icons">Custom Icons</a>
+                    <a href="#mobile-bugs">Common Mobile Bug-fixes</a>
+                    <a href="#debug-mobile">Debugging Mobile</a>
+                </nav>
+                <section id="mobile-general">
+                    <header>
+                        <h2>General Notes</h2>
+                    </header>
+                    <dl>
+                        <dt>Use HTML5 mobile boilerplate as a base, or at least reference the source code</dt>
+                        <dt>When possible avoid tables</dt>
+                        <dt>When possible avoid relative, fixed, and absolute positioning</dt>
+                        <dt>For UI icons and whenever possible, use SVG instead of raster images (.png, .jpg, .gif).</dt>
+                            <dd>These icons will render nicely on high-DPI screens like Retina without needing to use a larger asset.</dd>
+                        <dt>Typography</dt>
+                            <dd>Use ems, <a href="http://snook.ca/archives/html_and_css/font-size-with-rem">rems</a>, or %</dd>
+                            <dd>To optimize mobile IE font rendering, add this code in the &lt;head&gt; <code>&lt;meta http-equiv="cleartype" content="on"&gt;</code></dd>
+                    </dl>
+                </section>
+                <!-- //#mobile-general -->
+
+                <section id="viewport">
+                    <header>
+                        <h2>Viewport</h2>
+                    </header>
+                    <p>Ensure sites will appear at the correct size by adding the following tags in the document's &lt;head&gt;</p>
+                    <div class="code-sample">
+                        <script src="https://gist.github.com/mperrotti/4716414.js"></script>
+                    </div>
+                    <p class="important-text">Use <a href="#">this fix</a> for Windows Phone 8 and IE Snap Mode</p>
+                </section>
+                <!-- //#viewport -->
+
+                <section id="customize-interface">
+                    <header>
+                        <h2>Customize iOS UI Components</h2>
+                    </header>
+                    <ul>
+                        <li>Hide the Safari UI Components
+                            <pre><code>&lt;meta name="apple-mobile-web-app-capable" content="yes"&gt;</code></pre>
+                        </li>
+                        <li>Customize iOS status bar's color/opacity
+                            <pre><code>&lt;meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"&gt;</code></pre>
+                        </li>
+                    </ul>
+                    <p>For more information, visit <a href="http://developer.apple.com/library/ios/#documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html" title="iOS Developer Library" target="_blank">this page</a> of the iOS Developer Library</p>
+                </section>
+                <!-- //#customize-interface -->
+
+                <section id="custom-icons">
+                    <header>
+                        <h2>Custom Icons</h2>
+                    </header>
+                    <dl>
+                        <dt><h3>Homescreen Icons</h3></dt>
+                            <dd>
+                                <p>Add the following tags in the &lt;head&gt; of the document to customize the site's icon that gets saved on a device's homescreen</p>
+                                <div class="code-sample"><script src="https://gist.github.com/mperrotti/4717136.js"></script></div>
+                                <p>For more information, visit <a href="http://developer.apple.com/library/ios/#documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html" title="iOS Developer Library" target="_blank">this page</a> of the iOS Developer Library</p>
+                            </dd>
+                        <dt><h3>iOS Startup Image</h3></dt>
+                            <dd>
+                                <p>Add the following tags in the &lt;head&gt; of the document to customize the image shown after launching the site from an icon on the iOS home screen</p>
+                                <div class="code-sample"><script src="https://gist.github.com/mperrotti/4717207.js"></script></div>
+                                <p>For more information, visit <a href="http://developer.apple.com/library/ios/#documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html" title="iOS Developer Library" target="_blank">this page</a> of the iOS Developer Library</p>
+                            </dd>
+                        <dt><h3>Windows 8 Tile</h3></dt>
+                            <dd>
+                                <p>Add the following tags in the &lt;head&gt; of the document to customize the site's Windows 8 tile</p>
+                                <div class="code-sample"><script src="https://gist.github.com/mperrotti/4717240.js"></script></div>
+                            </dd>
+                    </dl>
+                </section>
+                <!-- //#customize-icons -->
+
+                <section id="mobile-bugs">
+                    <header>
+                        <h2>Common Mobile Bug-fixes</h2>
+                    </header>
+
+                    <dl>
+                        <dt><h3>Windows Phone 8 Viewport Fix</h3></dt>
+                            <dd>
+                                <ul>
+                                    <li>When in Snap Mode, IE10 ignores the "viewport" tag for viewports smaller than 400px</li>
+                                    <li>Some Windows phones, notably the Lumia 920, have a bug with <code>device-width</code> in CSS where an incorrect value of 768px is returned when detecting device width with <code>@-ms-viewport { width: device-width; }</code></li>
+                                </ul>
+                            </dd>
+                            <dd>
+                                <p>CSS for Windows Phoneones without this bug:</p>
+                                <code>@-ms-viewport { width: device-width; }</code>
+                            </dd>
+                            <dd>
+                                <p>JavaScript fix for Snap Mode and buggy Windows phones</p>
+                                <div class="code-sample"><script src="https://gist.github.com/mperrotti/4717392.js"></script></div>
+                            </dd>
+
+                        <dt><h3>Hide browser URL bar on load</h3></dt>
+                            <dd>
+                                <p>Fix by Scott Jehl. Used in HTML5 Mobile Boilerplate, more information in <a href="http://24ways.org/2011/raising-the-bar-on-mobile/" title="Normalize mobile URL bar" target="_blank"> this article</a>.</p>
+                                <div class="code-sample"><script src="https://gist.github.com/scottjehl/1183357.js"></script></div>
+                            </dd>
+                        <dt><h3>Fix 300ms delay on button tap</h3></dt>
+                            <dd>
+                                <p>iOS waits 300ms after <code>touchstart</code> to allow users time to make a gesture. It makes for a smoother experience to remove this delay on buttons meant to be tapped.</p>
+                                <div class="code-sample"><script src="https://gist.github.com/mperrotti/4717598.js"></script></div>
+                                <p>Implementing the code above:</p>
+                                <code>fastButton($('.button-selector'), function() {alert("click delay fixed")});</code>
+                            </dd>
+                        <dt><h3>Prevent zooming on form field focus</h3></dt>
+                            <dd>
+                                <p>Stop the device from zooming in on a <code>&lt;select&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code></p>
+                                <div class="code-sample"><script src="https://gist.github.com/mperrotti/4717719.js"></script></div>
+                                <p>Implementing the code above:</p>
+                                <code>preventZoom();</code>
+                            </dd>
+                    </dl>
+                </section>
+                <!-- //#mobile-bugs -->
+
+                <section id="debug-mobile">
+                    <header>
+                        <h2>Debugging for Mobile</h2>
+                    </header>
+                    <dl>
+                        <dt><a href="http://html.adobe.com/edge/inspect/" title="Adobe Edge Inspect" target="_blank">Adobe Edge Inspect</a></dt>
+                            <dd>When debugging locally, best used with <a href="http://www.fiddler2.com/fiddler2/" title="Fiddler" target="_blank">Fiddler (for PC), or <a href="http://www.charlesproxy.com/" title="Charles" target="_blank">Charles (for OS X)</dd>
+                        <dt><a href="http://mobitest.akamai.com/" title="Mobitest" target="_blank">Mobitest</a></dt>
+                            <dd>For performance testing</dd>
+                        <dt><a href="http://slowyapp.com/" title="SlowlyApp" target="_blank">SlowlyApp (OS X only)</a></dt>
+                            <dd>Emulates slower mobile connection speeds</dd>
+                    </dl>
+                </section>
+                <!-- //#debug-mobile -->
+
+            </section>
+            <!-- //#mobile -->
+
+            <section id="high-dpi" class="guide-category">
+                <header>
+                    <h1>Images for High DPI</h1>
+                </header>
+                <nav>
+                    <a href="#using-vector">Using Vector Images</a>
+                    <a href="#inline-images">Inline Images</a>
+                    <a href="#css-bg-images">CSS Background Images</a>
+                </nav>
+                <section id="using-vector">
+                    <header>
+                        <h2>Using Vector Images</h2>
+                    </header>
+                    <dl>
+                        <dt>When possible, use SVG images with a PNG fallback instead of raster images</dt>
+                        <dt>For a set of simple icons, you could create an icon font instead of using an image sprite.</dt>
+                            <dd class="step-list">For each icon, create a SVG file</dd>
+                            <dd class="step-list">Import each SVG using <a href="http://icomoon.io/app/" title="IcoMoon" target="_blank">IcoMoon</a></dd>
+                            <dd class="step-list">Select your icons, then click "Font" at the bottom of the page</dd>
+                            <dd class="step-list">Set a character for each icon</dd>
+                            <dd class="step-list">Click "download" to download your custom icon font as well as example CSS and HTML for using your font</dd>
+                    </dl>
+                </section>
+                <!-- //#using-vector -->
+                
+                <section id="inline-images">
+                    <header>
+                        <h2>Inline images</h2>
+                    </header>
+                    <p>For inline images, use the experimental <a href="http://www.w3.org/html/wg/drafts/srcset/w3c-srcset/" target="_blank" title="srcset">srcset</a> attribute with a <a href="http://github.com/borismus/srcset-polyfill" title="JavaScript polyfill" target="_blank">JavaScript polyfill</a></p>
+<pre><code>&lt;img alt="Dress"
+ src="dress.jpeg"
+ srcset="dress-HD.jpeg 2x, dress-phone.jpeg 640w, dress-phone-HD.jpeg 640w 2x"&gt;
+</code></pre>
+                    <dl>
+                        <dt>Devices with a viewport width of less than 640px with a 2x pixel density (e.g.: iPhone 5)</dt>
+                        <dd><code>dress-phone-HD.jpeg 640w 2x</code></dd>
+                        <dt>Devices with a viewport width of less than 640px (e.g.: iPhone 3GS)</dt>
+                        <dd><code>dress-phone.jpeg 640w</code></dd>
+                        <dt>Devices with a viewport width of greater than 640px with a 2x pixel density (e.g. Macbook Pro with Retina Diplay)</dt>
+                        <dd><code>dress-HD.jpeg 2x</code></dd>
+                        <dt>All other devices (e.g.: desktop PC)</dt>
+                        <dd><code>dress.jpeg</code></dd>
+                    </dl>
+                </section>
+                <!-- //#inline-images -->
+
+                <section id="css-bg-images">
+                    <p>For high DPI friendly background images in CSS, use <code>image-set</code> with a media query fallback. <code>image-set</code> takes multiple paths with a pixel density appended. so So <code>url(bg_low-res.jpg) 1x</code> would serve <code>bg_low-res.jpg</code> to devices with a regular display density, while <code>url(bg_high-res.jpg) 2x</code> would serve <code>bg_high-res.jpg</code> to devices with a display density of 2x</p>
+                    <div class="code-sample"><script src="https://gist.github.com/mperrotti/4723781.js"></script></div>
+                </section>
+
+            </section>
+        
+        </div>
+        <!-- //.container -->
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+              function filterPath(string) {
+              return string
+                .replace(/^\//,'')
+                .replace(/(index|default).[a-zA-Z]{3,4}$/,'')
+                .replace(/\/$/,'');
+              }
+              var locationPath = filterPath(location.pathname);
+              var scrollElem = scrollableElement('html', 'body');
+             
+              $('a[href*=#]').each(function() {
+                var thisPath = filterPath(this.pathname) || locationPath;
+                if (  locationPath == thisPath
+                && (location.hostname == this.hostname || !this.hostname)
+                && this.hash.replace(/#/,'') ) {
+                  var $target = $(this.hash), target = this.hash;
+                  if (target) {
+                    var targetOffset = $target.offset().top;
+                    $(this).click(function(event) {
+                      event.preventDefault();
+                      $(scrollElem).animate({scrollTop: targetOffset}, 400, function() {
+                        location.hash = target;
+                      });
+                    });
+                  }
+                }
+              });
+             
+              // use the first element that is "scrollable"
+              function scrollableElement(els) {
+                for (var i = 0, argLength = arguments.length; i <argLength; i++) {
+                  var el = arguments[i],
+                      $scrollElement = $(el);
+                  if ($scrollElement.scrollTop()> 0) {
+                    return el;
+                  } else {
+                    $scrollElement.scrollTop(1);
+                    var isScrollable = $scrollElement.scrollTop()> 0;
+                    $scrollElement.scrollTop(0);
+                    if (isScrollable) {
+                      return el;
+                    }
+                  }
+                }
+                return [];
+              }
+             
+            });
+        </script>
+    </body>
+</html>

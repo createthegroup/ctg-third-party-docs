@@ -1,0 +1,336 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+html {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+  q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+    content: none; }
+
+a img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block; }
+
+/*------------------------------------*\
+    WIDTHS AND COLUMNS
+\*------------------------------------*/
+/*------------------------------------*\
+    TYPOGRAPHY
+\*------------------------------------*/
+                           /*------------------------------------*\
+    SPRITES
+\*------------------------------------
+$sprites: sprite-map("icons/*.png");
+@mixin sprite-background($name) {
+  background-image: sprite-url($sprites);
+  background-position: sprite-position($sprites, $name);
+  background-repeat: no-repeat;
+  display: block;
+  height: image-height(sprite-file($sprites, $name));
+  width: image-width(sprite-file($sprites, $name));
+}
+
+@mixin dropdown($width, $height, $backgroundColor, $arrowUrl) {
+	.styled{
+	   background: url(http://www.stackoverflow.com/favicon.ico) no-repeat 96% #ddd;
+	   height: 34px;
+	   overflow: hidden;
+	   width: 120px
+;		select {
+		   background: transparent;
+		   width: 150px;
+		   padding: 5px;
+		   font-size: 16px;
+		   border: 1px solid #ccc;
+		   height: 34px;
+		    -webkit-appearance: none;
+		}
+	}
+}
+*/
+/*------------------------------------*\
+    BUTTONS
+\*------------------------------------*/
+section nav a {
+  border: 1px solid;
+  border-radius: 3px;
+  padding: 4px 6px;
+  text-align: center; }
+
+/*------------------------------------*\
+    TYPOGRAPHY
+\*------------------------------------*/
+h1 {
+  font-size: 2.25em;
+  line-height: 1.5em; }
+
+h2 {
+  font-size: 1.75em;
+  line-height: 1.5em; }
+
+h3 {
+  font-size: 1.25em;
+  line-height: 1.5em; }
+
+h4 {
+  font-size: 0.75em;
+  line-height: 1.5em; }
+
+html {
+  color: #444444;
+  line-height: 1.5em;
+  font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif; }
+
+code {
+  font-family: Courier, "Courier New", monospace; }
+
+a {
+  color: #444;
+  font-weight: bold; }
+
+.correct {
+  color: green; }
+
+.incorrect {
+  color: red; }
+
+.important-text {
+  font-weight: bold; }
+
+/*------------------------------------*/
+/*------------------------------------*\
+    GLOBAL STYLES
+\*------------------------------------*/
+/*------------------------*\
+	HEADERS
+\*------------------------*/
+header {
+  *zoom: 1; }
+  header:before, header:after {
+    content: " ";
+    display: table; }
+  header:after {
+    clear: both; }
+
+body {
+  background: whitesmoke; }
+
+.main-header {
+  background: #373b43;
+  border-bottom: 1px solid #090a0b;
+  padding: 0.5em; }
+  .main-header .logo {
+    background: url("../../img/ctg.png");
+    height: 46px;
+    width: 293px; }
+
+/*------------------------*/
+/*------------------------*\
+	NAV
+\*------------------------*/
+section nav {
+  background: gainsboro;
+  border-radius: 0 0 6px 6px;
+  border-top: 1px solid white;
+  padding: 0.5em 1.5em; }
+  section nav a {
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: middle;
+    *vertical-align: auto;
+    zoom: 1;
+    *display: inline;
+    background: whitesmoke;
+    border-color: whitesmoke;
+    color: #444444;
+    margin: .5em;
+    text-decoration: none; }
+    section nav a:hover {
+      background: #e8e8e8;
+      border-color: #444444;
+      text-decoration: underline; }
+
+.main-nav {
+  border-color: gainsboro;
+  border-radius: 2px;
+  border-style: solid;
+  border-width: 1px 0;
+  float: left;
+  padding: 0.5em;
+  position: fixed; }
+  .main-nav a {
+    color: #444444;
+    display: block;
+    font-weight: bold;
+    font-size: .75em;
+    text-decoration: none;
+    text-transform: uppercase; }
+    .main-nav a:hover {
+      text-decoration: underline; }
+
+/*------------------------*/
+/*------------------------*\
+	LISTS
+\*------------------------*/
+ul,
+dd {
+  list-style: disc; }
+
+dd {
+  display: list-item; }
+
+dd,
+li {
+  margin: 0 0 1em 2em; }
+
+.step-list {
+  list-style: decimal; }
+
+/*------------------------*/
+/*------------------------*\
+	CODE
+\*------------------------*/
+code {
+  background: gainsboro;
+  color: #444444;
+  padding: 5px; }
+
+pre,
+.code-sample {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: inset darkgrey 0 0 10px;
+  -moz-box-shadow: inset darkgrey 0 0 10px;
+  box-shadow: inset darkgrey 0 0 10px;
+  background: gainsboro;
+  border: 2px solid white;
+  padding: 0.5em; }
+  pre code,
+  .code-sample code {
+    background: transparent; }
+
+.code-sample pre {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none; }
+
+.code-sample .gist .gist-file .gist-data {
+  background: transparent; }
+
+.code-sample .gist .gist-file .gist-data .line-data {
+  background: gainsboro;
+  width: 100%; }
+
+/*------------------------*/
+.container {
+  *zoom: 1;
+  max-width: 71em;
+  _width: 71em;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-left: auto;
+  margin-right: auto; }
+  .container:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+.guide-category,
+.main-nav {
+  margin: 2.5em 0; }
+
+.guide-category {
+  width: 74.64789%;
+  float: left;
+  margin-right: 1.40845%;
+  display: inline;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+  display: inline; }
+  .guide-category header {
+    background: #373b43;
+    border-bottom: 2px solid black; }
+  .guide-category h1 {
+    color: whitesmoke;
+    font-weight: bold;
+    letter-spacing: .05em;
+    padding: 0.5em 1em; }
+  .guide-category > section {
+    margin: 1em 0 2em 0; }
+    .guide-category > section header {
+      background: transparent;
+      border-bottom: none; }
+    .guide-category > section h2 {
+      color: #444444;
+      font-weight: bold; }
+
+/*------------------------------------*/
+/*------------------------------------*\
+    GENERAL GUIDE
+\*------------------------------------*/
+.general-guide ul {
+  width: 32.39437%;
+  float: left;
+  margin-right: 1.40845%;
+  display: inline;
+  margin-top: 1em; }
+  .general-guide ul:nth-child(4n) {
+    float: right;
+    margin-right: 0;
+    #margin-left: -1em;
+    display: inline; }
+
+/*------------------------------------*/
+/*------------------------------------*\
+    FILE STRUCTURE
+\*------------------------------------*/
+.structure-guide {
+  background-image: url(../../img/structure-guides.jpg); }
+  .html-structure .structure-guide {
+    height: 420px; }
+  .css-structure .structure-guide {
+    background-position: 0 -425px;
+    height: 310px; }
+  .js-structure .structure-guide {
+    background-position: 0 -730px;
+    height: 430px; }
+
+/*------------------------------------*/

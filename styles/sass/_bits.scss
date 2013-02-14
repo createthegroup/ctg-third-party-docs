@@ -1,0 +1,194 @@
+// ---------------------------------------------------------------------------
+// Vars
+
+//Typography
+$base-font-size: 16px;
+
+//Colors
+$base-color      : whitesmoke;
+$secondary-color : darken($base-color, 10%);
+$text-color      : #444;
+$dark-color      : #373B43;
+$accent-color    : #00A1D9;
+$code-bg         : rgba(20, 20, 20, .5);
+
+//Spacing
+$padding 		 : .5em;
+
+// ---------------------------------------------------------------------------
+// Mixins
+
+@mixin clrfx {
+
+	&:before,
+	&:after {
+	    content: " ";
+	    display: table;
+	}
+	&:after {
+		clear: both;
+	}
+	*zoom: 1;
+}
+
+@mixin btn-styles($color) {
+	$experimental-support-for-svg: true;
+	
+	$default-text-shadow-color: lighten($color, 25%);
+	$default-text-shadow-blur: 1px;
+	$default-text-shadow-h-offset: 1px;
+	$default-text-shadow-v-offset: 1px;
+	@include single-text-shadow;
+
+	@include background-image(linear-gradient($color, darken($color, 10%)));
+	@include inline-block(bottom);
+	@include single-box-shadow(lighten($color, 25%), 0, 1px, 0, 0, inset);
+	border-color: darken($color, 20%);
+	color: darken($color, 25%);
+	font-weight: bold;
+	text-decoration: none;
+	&:hover{
+		$default-text-shadow-color: darken($color, 25%);
+		$default-text-shadow-blur: 1px;
+		$default-text-shadow-h-offset: 1px;
+		$default-text-shadow-v-offset: 1px;
+		@include single-text-shadow;
+		@include single-box-shadow(transparent, 0, 1px, 0, 0, inset);
+		color: lighten($color, 60%);
+		background-image: none;
+		background: darken($color, 10%);
+	}
+}
+
+@mixin full-background-img($bg-url) {
+	.backgroundsize & {
+		background: url($bg-url);
+		@include experimental(background-size, cover, -moz, -webkit, -o, not -ms, not -khtml);
+	}
+	.no-backgroundsize & {
+		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+		src=$bg-url,
+		sizingMethod='scale');
+
+		-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(
+		src=$bg-url,
+		sizingMethod='scale')";
+	}
+}
+
+@mixin background-size($size-1: $default-background-size, $size-2: false, $size-3: false, $size-4: false, $size-5: false, $size-6: false, $size-7: false, $size-8: false, $size-9: false, $size-10: false) {
+  $size-1: if(type-of($size-1) == string, unquote($size-1), $size-1);
+  $sizes: compact($size-1, $size-2, $size-3, $size-4, $size-5, $size-6, $size-7, $size-8, $size-9, $size-10);
+  @include experimental(background-size, $sizes, -moz, -webkit, -o, not -ms, not -khtml); }
+
+/*------------------------------------*\
+    WIDTHS AND COLUMNS
+\*------------------------------------*/
+
+@mixin update-container {
+	.container {
+		@include set-container-width;
+		@include susy-grid-background;
+	}
+}
+
+//Whole
+@mixin one-whole 	  { @include span-columns($total-columns omega, $total-columns);	}
+//Halves
+@mixin one-half       {	@include span-columns(($total-columns/2), $total-columns);  }
+
+//Thirds
+@mixin one-thirds     {	@include span-columns(($total-columns/3), $total-columns);	 }
+@mixin two-thirds     {	@include span-columns((($total-columns/3)*2), $total-columns);	 }
+
+//Quarters
+@mixin one-quarters   {	@include span-columns(($total-columns/4), $total-columns);  }
+@mixin two-quarters   {	@include one-half;  }
+@mixin three-quarters {	@include span-columns((($total-columns/4)*3), $total-columns);  }
+
+
+/*------------------------------------*\
+    TYPOGRAPHY
+\*------------------------------------*/
+@mixin setHeadingSize ($from, $to, $base-size, $decrement) {
+
+	$currentNumber: $from;
+	$currentSize: $base-size;
+	$to: $to + 1;
+
+		@while $currentNumber != $to {
+
+			h#{$currentNumber}{
+				font-size: $currentSize;
+				@include adjust-leading-to(1, $base-font-size);
+			}
+		
+			$currentNumber: $currentNumber + 1;
+			$currentSize: $currentSize - $decrement;
+
+		}
+
+}
+
+/*------------------------------------*\
+    SPRITES
+\*------------------------------------
+$sprites: sprite-map("icons/*.png");
+@mixin sprite-background($name) {
+  background-image: sprite-url($sprites);
+  background-position: sprite-position($sprites, $name);
+  background-repeat: no-repeat;
+  display: block;
+  height: image-height(sprite-file($sprites, $name));
+  width: image-width(sprite-file($sprites, $name));
+}
+
+@mixin dropdown($width, $height, $backgroundColor, $arrowUrl) {
+	.styled{
+	   background: url(http://www.stackoverflow.com/favicon.ico) no-repeat 96% #ddd;
+	   height: 34px;
+	   overflow: hidden;
+	   width: 120px
+;		select {
+		   background: transparent;
+		   width: 150px;
+		   padding: 5px;
+		   font-size: 16px;
+		   border: 1px solid #ccc;
+		   height: 34px;
+		    -webkit-appearance: none;
+		}
+	}
+}
+*/
+
+// ---------------------------------------------------------------------------
+// Extends
+
+/*------------------------------------*\
+    BUTTONS
+\*------------------------------------*/
+%btn{
+	border: 1px solid;
+	border-radius: 3px;
+	padding: 4px 6px;
+	text-align: center;
+}
+
+%btn-plain{
+	@extend %btn;
+	@include btn-styles($base-color);
+}
+
+%btn-lrg{
+	padding: 8px 12px;
+}
+
+%btn-round{
+	border-radius: 999px;
+}
+
+%btn-callout{
+	@extend %btn;
+	@include btn-styles($accent-color);
+}

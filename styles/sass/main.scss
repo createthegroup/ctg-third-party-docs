@@ -1,0 +1,253 @@
+// ---------------------------------------------------------------------------
+// Imports
+
+// Compass imports
+@import "compass/reset";
+@import "compass/support";
+@import "compass/css3";
+@import "compass/layout/sticky-footer";
+@import "compass/typography/vertical_rhythm";
+@import "compass/typography/lists/bullets";
+@import "compass/typography/lists/inline-list";
+
+// Susy imports
+@import "base";
+
+// My imports
+@import "bits";
+
+/*------------------------------------*\
+    TYPOGRAPHY
+\*------------------------------------*/
+@include setHeadingSize(1, 4, 2.25em, .5em);
+
+html {
+	color: $text-color;
+	line-height: 1.5em;
+	font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+}
+code {
+	font-family: Courier, "Courier New", monospace;
+}
+
+a {
+	color: #444;
+	font-weight: bold;
+}
+
+.correct {
+	color: green;
+}
+.incorrect {
+	color: red;
+}
+
+.important-text {
+	font-weight: bold;
+}
+/*------------------------------------*/
+
+/*------------------------------------*\
+    GLOBAL STYLES
+\*------------------------------------*/
+/*------------------------*\
+	HEADERS
+\*------------------------*/
+header {
+	@include clrfx;
+}
+
+body {
+	background: $base-color;
+}
+
+.main-header {
+	background: $dark-color;
+	border-bottom: 1px solid darken($dark-color, 20%);
+	padding: $padding;
+	.logo{
+		background: url('../../img/ctg.png');
+		height: 46px;
+		width: 293px;
+	}
+
+}
+/*------------------------*/
+
+/*------------------------*\
+	NAV
+\*------------------------*/
+section nav { 
+	background: $secondary-color;
+	border-radius: 0 0 6px 6px;
+	border-top: 1px solid lighten($secondary-color, 20%);
+	padding: $padding $padding*3;
+	
+	a {
+		@include inline-block;
+		@extend %btn;
+		background: $base-color;
+		border-color: $base-color;
+		color: $text-color;
+		margin: .5em;
+		text-decoration: none;
+		&:hover {
+			background: darken($base-color, 5%);
+			border-color: $text-color;
+			text-decoration: underline;
+		}
+	}
+
+}
+
+.main-nav {
+	border-color: $secondary-color;
+	border-radius: 2px;
+	border-style: solid;
+	border-width: 1px 0;
+	float: left;
+	padding: $padding;
+	position: fixed;
+
+	a {
+		color: $text-color;
+		display: block;
+		font-weight: bold;
+		font-size: .75em;
+		text-decoration: none;
+		text-transform: uppercase;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+/*------------------------*/
+
+/*------------------------*\
+	LISTS
+\*------------------------*/
+ul,
+dd { list-style: disc; }
+
+dd { display: list-item; }
+
+dd,
+li{ margin: 0 0 1em 2em; }
+
+.step-list { list-style: decimal; }
+/*------------------------*/
+
+/*------------------------*\
+	CODE
+\*------------------------*/
+code {
+	background: $secondary-color;
+	color: $text-color;
+	padding: 5px;
+}
+
+pre,
+.code-sample {
+	@include border-radius(5px);
+	@include box-shadow(inset darken($secondary-color, 20%) 0 0 10px);
+	background: $secondary-color;
+	border: 2px solid white;
+	padding: $padding;
+
+	code {
+		background: transparent;
+	}
+
+}
+
+.code-sample pre {
+	@include box-shadow(none);
+}
+
+.code-sample .gist .gist-file .gist-data {
+	background: transparent;
+}
+
+.code-sample .gist .gist-file .gist-data .line-data {
+	background: $secondary-color;
+	width: 100%;
+}
+/*------------------------*/
+
+.container {
+	@include container;
+}
+
+.guide-category,
+.main-nav {
+	margin: 2.5em 0;
+}
+
+.guide-category {
+	@include three-quarters;
+	@include omega;
+
+	header {
+		background: $dark-color;
+		border-bottom: 2px solid darken($dark-color, 30%);
+	}
+	
+	h1 {
+		color: $base-color;
+		font-weight: bold;
+		letter-spacing: .05em;
+		padding: $padding $padding*2;
+	}
+
+	& > section {
+		margin: 1em 0 2em 0;
+
+		header {
+			background: transparent;
+			border-bottom: none;
+		}
+
+		h2 {
+			color: $text-color;
+			font-weight: bold;
+		}
+
+	}
+
+}
+
+/*------------------------------------*/
+
+/*------------------------------------*\
+    GENERAL GUIDE
+\*------------------------------------*/
+.general-guide {
+	ul {
+		@include one-thirds;
+		&:nth-child(4n) { @include omega; }
+		margin-top: 1em;
+	}
+}
+/*------------------------------------*/
+
+/*------------------------------------*\
+    FILE STRUCTURE
+\*------------------------------------*/
+.structure-guide {
+	background-image: url(../../img/structure-guides.jpg);
+	.html-structure & { 
+		height: 420px;
+	}
+
+	.css-structure & {
+		background-position: 0 -425px;
+		height: 310px;
+	}
+
+	.js-structure & {
+		background-position: 0 -730px;
+		height: 430px;
+	}
+}
+/*------------------------------------*/

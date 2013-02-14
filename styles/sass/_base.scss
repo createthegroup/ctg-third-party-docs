@@ -1,0 +1,12 @@
+// ---------------------------------------------------------------------------
+// Imports
+
+@import "susy";
+
+// ---------------------------------------------------------------------------
+$total-columns  : 12;
+$column-width   : 5em;
+$gutter-width   : 1em;
+$grid-padding   : $gutter-width;
+
+$show-grid-backgrounds  : true;
