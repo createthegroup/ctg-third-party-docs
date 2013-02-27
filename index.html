@@ -38,14 +38,14 @@
                 </header>
                 <ul>
                     <li>Avoid trailing whitespace in code</li>
-                    <li>JavaScript must pass JSHint validation (exceptions can be made)</li>
-                    <li>HTML must pass W3C validation (exceptions can be made)</li>
+                    <li>JavaScript should pass JSHint validation (exceptions can be made)</li>
+                    <li>HTML should pass W3C validation (exceptions can be made)</li>
                     <li>Google Page Speed score of 90+</li>
                     <li>Yahoo YSlow score of 85+</li>
                 </ul>
                 <ul>
                     <li>No inline CSS</li>
-                    <li>No inline JavaScript</li>
+                    <li>Inline JavaScript should be kept to a minimum</li>
                     <li>Compress image assets</li>
                 </ul>
             </section>
@@ -173,12 +173,12 @@
                     </header>
                     <dl>
                         <dt>Use a CSS reset</dt>
-                        <dt>Alphebetize your declarations</dt>
+                        <dt>Alphabetize your declarations</dt>
                         <dt>Avoid using ID selectors as much as possible</dt>
                         <dt>Don't start selectors with element names</dt>
                             <dd><span class="incorrect">Incorrect: </span><code>div.class-name</code></dd>
                             <dd><span class="correct">Correct: </span><code>.class-name</code></dd>
-                        <dt>Simplify selectors as much as possble</dt>
+                        <dt>Simplify selectors as much as possible</dt>
                         <dt>Use CSS (as opposed to JavaScript) for animations as much as possible</dt>
                             <dd>When moving an element from Point A to Point B, use <code>translateX</code> and <code>translateY</code> instead of positioning with <code>position: absolute;</code> or <code>position: relative;</code> and <code>top, right, bottom, left</code></dd>
                     </dl>
@@ -194,7 +194,7 @@
                         <dt>Make the classes more specific -- .product-title, .tab-title, etc</dt>
                             <dd>This method is less likely to cause conflicts, especially when future developers take on the code and don't necessarily fully understand the page hierarchy</dd>
                         
-                        <dt>If the titiles are part of two different ancestors you can build the specificity into the selector -- .view .product .title, .view .tab .title</dt>
+                        <dt>If the titles are part of two different ancestors you can build the specificity into the selector -- .view .product .title, .view .tab .title</dt>
                             <dd>This method is generally a bit lighter as class names and css selectors will be shorter, however if someone doesn't properly consider the hierarchy of the page (ie they use .view .title) it could apply styles where they weren't intended</dd>
                     </dl>
                 </section>
